@@ -1,79 +1,17 @@
 # Cube GraphQL API
 
-## Overview
+Cube exposes a GraphQL API that sits on top of its semantic layer, allowing front-end applications and embedded analytics tools to query measures, dimensions, and time dimensions defined across any connected SQL database or data warehouse. The schema is dynamically generated per deployment based on the cubes (data models) defined by the user, so every Cube instance presents its own cube-specific types alongside the fixed base types (filters, ordering, `TimeDimension`, and the root `cube` query).
 
-Cube exposes a GraphQL API via the `/graphql` endpoint, enabling data delivery over
-HTTP to GraphQL-enabled applications. It provides access to all measures, dimensions,
-segments, and filters defined in the Cube semantic layer.
+The API supports filtering with `FloatFilter`, `StringFilter`, and `DateTimeFilter` input types, multi-level `AND`/`OR` boolean logic, time granularity (`second`, `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`), pagination (`limit`/`offset`), timezone control, and query caching hints. It does **not** support WebSocket transport, subscriptions, segments, compare date range queries, or data model metadata queries.
 
-## Endpoint
-
-```
-https://<your-cube-deployment>/graphql
-```
+**Endpoint:** `https://<your-cube-deployment>/graphql`
 
 In Cube Cloud, find your specific endpoint by navigating to **Overview → API credentials → GraphQL API**.
 
-## Authentication
+**Authentication:** Requests must include a valid API token in the `Authorization` header as `Authorization: Bearer <CUBE_API_TOKEN>`. Tokens are issued from the Cube Cloud dashboard or configured via the `CUBEJS_API_SECRET` environment variable in self-hosted deployments. The API is enabled by default and secured using API scopes and CORS; it can be disabled by removing the `graphql` scope from `CUBEJS_DEFAULT_API_SCOPES`.
 
-Requests must include a valid API token in the `Authorization` header:
+**Documentation:** https://docs.cube.dev/reference/core-data-apis/graphql-api
 
-```
-Authorization: Bearer <CUBE_API_TOKEN>
-```
-
-## Querying
-
-The GraphQL API mirrors the Cube REST query model. The root query field is `cube`,
-accepting a `where` filter argument and returning typed result objects for each
-cube defined in your semantic layer.
-
-### Example Query
-
-```graphql
-{
-  cube(
-    where: { orders: { status: { equals: "completed" } } }
-    limit: 10
-    offset: 0
-    orderBy: { orders: { createdAt: asc } }
-  ) {
-    orders {
-      count {
-        value
-      }
-      totalAmount {
-        value
-      }
-      createdAt {
-        day
-      }
-    }
-  }
-}
-```
-
-## Supported Operations
-
-- **Measures** — Numeric aggregations defined in the semantic layer (e.g., `count`, `sum`, `avg`)
-- **Dimensions** — Attributes to group or filter by (e.g., `status`, `createdAt`)
-- **Segments** — Pre-defined filter sets applied as boolean flags
-- **Time dimensions** — Date/time fields with granularity options (`day`, `week`, `month`, `quarter`, `year`)
-
-## Granularities for Time Dimensions
-
-| Granularity | Description        |
-|-------------|--------------------|
-| `second`    | Per-second buckets |
-| `minute`    | Per-minute buckets |
-| `hour`      | Hourly buckets     |
-| `day`       | Daily buckets      |
-| `week`      | Weekly buckets     |
-| `month`     | Monthly buckets    |
-| `quarter`   | Quarterly buckets  |
-| `year`      | Yearly buckets     |
-
-## References
-
-- [GraphQL API documentation](https://cube.dev/docs/product/apis-integrations/graphql-api)
-- [GraphQL API reference](https://cube.dev/docs/reference/graphql-api)
+**References:**
+- Documentation: https://docs.cube.dev/reference/core-data-apis/graphql-api
+- GitHub: https://github.com/cube-js/cube/blob/master/packages/cubejs-api-gateway/src/graphql.ts

@@ -1,0 +1,170 @@
+"""
+Cube GraphQL API Schema
+Source: https://github.com/cube-js/cube/blob/master/packages/cubejs-api-gateway/src/graphql.ts
+
+NOTE: The Cube GraphQL schema is dynamically generated at runtime based on the cubes
+(data models) defined in each deployment. The types below represent the static,
+always-present base types. Per-deployment types follow the pattern:
+
+  <CubeName>Members         - object type with measure/dimension fields
+  <CubeName>WhereInput      - filter input with AND/OR + per-member filter fields
+  <CubeName>OrderByInput    - order input with per-member OrderBy fields
+
+These per-deployment types are referenced from the root Result type and the
+RootWhereInput / RootOrderByInput aggregation types.
+"""
+
+scalar DateTime
+
+"""Direction for ordering query results."""
+enum OrderBy {
+  asc
+  desc
+}
+
+"""Filter operators for Float (number) measure and dimension fields."""
+input FloatFilter {
+  equals: Float
+  notEquals: Float
+  in: [Float]
+  notIn: [Float]
+  set: Boolean
+  gt: Float
+  lt: Float
+  gte: Float
+  lte: Float
+}
+
+"""Filter operators for String dimension fields."""
+input StringFilter {
+  equals: String
+  notEquals: String
+  in: [String]
+  notIn: [String]
+  contains: [String]
+  notContains: [String]
+  startsWith: [String]
+  notStartsWith: [String]
+  endsWith: [String]
+  notEndsWith: [String]
+  set: Boolean
+}
+
+"""Filter operators for DateTime (time) dimension fields."""
+input DateTimeFilter {
+  equals: [String]
+  notEquals: [String]
+  in: [String]
+  notIn: [String]
+  inDateRange: [String]
+  notInDateRange: [String]
+  beforeDate: String
+  beforeOrOnDate: String
+  afterDate: String
+  afterOrOnDate: String
+  set: Boolean
+}
+
+"""
+A time dimension field value resolved at multiple granularities.
+When a time dimension is selected, Cube returns a TimeDimension object
+rather than a raw scalar so that multiple granularity buckets can be
+accessed in a single query.
+"""
+type TimeDimension {
+  """Raw ISO-8601 timestamp value."""
+  value: DateTime!
+  """Timestamp truncated to the second."""
+  second: DateTime!
+  """Timestamp truncated to the minute."""
+  minute: DateTime!
+  """Timestamp truncated to the hour."""
+  hour: DateTime!
+  """Timestamp truncated to the day."""
+  day: DateTime!
+  """Timestamp truncated to the week (ISO week, Monday start)."""
+  week: DateTime!
+  """Timestamp truncated to the month."""
+  month: DateTime!
+  """Timestamp truncated to the quarter."""
+  quarter: DateTime!
+  """Timestamp truncated to the year."""
+  year: DateTime!
+}
+
+"""
+Cross-cube WHERE filter root. Each field corresponds to a cube defined in
+the data model. Fields are combined with implicit AND; use the top-level
+AND/OR fields to express boolean combinations across cubes.
+"""
+input RootWhereInput {
+  AND: [RootWhereInput!]
+  OR: [RootWhereInput!]
+  """
+  Per-cube filter fields are generated here at runtime, e.g.:
+    orders: OrdersWhereInput
+    users:  UsersWhereInput
+  """
+}
+
+"""
+Cross-cube ORDER BY root. Each field corresponds to a cube defined in
+the data model.
+"""
+input RootOrderByInput {
+  """
+  Per-cube order-by fields are generated here at runtime, e.g.:
+    orders: OrdersOrderByInput
+    users:  UsersOrderByInput
+  """
+}
+
+"""
+A single row of query results containing fields for every cube that was
+selected. Per-deployment, each cube appears as a non-null field on this
+type, with optional per-cube where/orderBy arguments for push-down filtering.
+"""
+type Result {
+  """
+  Per-cube member fields are generated here at runtime, e.g.:
+
+    orders(
+      where: OrdersWhereInput
+      orderBy: OrdersOrderByInput
+    ): OrdersMembers!
+
+    users(
+      where: UsersWhereInput
+      orderBy: UsersOrderByInput
+    ): UsersMembers!
+  """
+}
+
+type Query {
+  """
+  Primary entry point for all Cube data queries. Returns a list of Result
+  rows. Measures and dimensions to retrieve are expressed as nested field
+  selections inside the returned Result type. Time dimensions are accessed
+  via their granularity sub-fields (day, week, month, etc.).
+
+  Arguments:
+  - where:        Cross-cube filter expression
+  - limit:        Maximum number of rows to return
+  - offset:       Number of rows to skip (pagination)
+  - timezone:     IANA timezone name applied to time dimensions (e.g. "America/New_York")
+  - renewQuery:   Force cache bypass and re-run the underlying SQL
+  - cache:        Cache policy hint (passed through to the query orchestrator)
+  - ungrouped:    Return raw rows without GROUP BY (disables aggregation)
+  - orderBy:      Cross-cube sort order
+  """
+  cube(
+    where: RootWhereInput
+    limit: Int
+    offset: Int
+    timezone: String
+    renewQuery: Boolean
+    cache: String
+    ungrouped: Boolean
+    orderBy: RootOrderByInput
+  ): [Result!]!
+}
