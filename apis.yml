@@ -1,0 +1,56 @@
+aid: cube
+name: Cube
+description: "Semantic layer and headless BI platform with a GraphQL API for querying
+  measures, dimensions, and segments across any SQL database or data warehouse."
+type: Index
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://cube.dev
+baseURL: https://cube.dev/graphql
+created: 2026-06-14
+modified: 2026-06-14
+specificationVersion: '0.19'
+tags:
+  - GraphQL
+  - Semantic Layer
+  - Business Intelligence
+  - Embedded Analytics
+  - Data Warehouse
+apis:
+  - aid: cube:graphql-api
+    name: Cube GraphQL API
+    description: "GraphQL API that enables Cube to deliver data over HTTP to
+      GraphQL-enabled data applications. Exposes measures, dimensions, segments,
+      and filters defined in the Cube semantic layer for use in front-end
+      applications and embedded analytics."
+    tags:
+      - GraphQL
+      - Semantic Layer
+      - Metrics
+      - Embedded Analytics
+    humanURL: https://cube.dev/docs/product/apis-integrations/graphql-api
+    baseURL: https://cube.dev/graphql
+    properties:
+      - url: https://cube.dev/docs/product/apis-integrations/graphql-api
+        type: Documentation
+      - url: graphql/cube-graphql.md
+        type: GraphQL
+common:
+  - url: https://cube.dev
+    type: Website
+  - url: https://cube.dev/docs
+    type: Documentation
+  - url: https://www.linkedin.com/company/cube-dev
+    type: LinkedIn
+  - url: https://github.com/cube-js
+    type: GitHubOrganization
+  - url: https://cube.dev/pricing
+    type: Pricing
+  - url: plans/cube-plans.md
+    type: Plans
+  - url: rate-limits/cube-rate-limits.md
+    type: RateLimits
+  - url: finops/cube-finops.md
+    type: FinOps
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
