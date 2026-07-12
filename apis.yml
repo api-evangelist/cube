@@ -35,6 +35,10 @@ apis:
       - url: graphql/cube-graphql.md
         type: GraphQL
 common:
+  - type: TrustCenter
+    url: security/cube-trust-center.yml
+  - type: DomainSecurity
+    url: security/cube-domain-security.yml
   - url: https://cube.dev
     type: Website
   - url: https://cube.dev/docs
@@ -51,6 +55,8 @@ common:
     type: RateLimits
   - url: finops/cube-finops.md
     type: FinOps
+  - url: https://cube.dev/blog
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

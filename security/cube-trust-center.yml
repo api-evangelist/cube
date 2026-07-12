@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://cube.dev/security
+url: https://cube.dev/security
+certifications:
+- SOC 2
+- HIPAA
+- GDPR
+evidence:
+- source: https://cube.dev/security
+  keywords:
+  - soc 2
+  - hipaa
+  - gdpr
