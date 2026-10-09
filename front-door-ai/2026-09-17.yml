@@ -1,0 +1,37 @@
+# Front Door AI Index — cube — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: cube
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: cube.dev
+  final_host: cube.dev
+  ownership: own
+  owner: cube
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 29
+  band: 6
+  band_label: dominant
+  host_score: 29
+  density: 37.08
+  words: 782
+  tiers:
+    agentic: 13
+    core: 14
+    model: 2
+  ambiguous: 12
+  top_terms:
+    AI: 12
+    agent: 9
+    agentic: 7
+    AI agent: 3
+    MCP: 3
+    intelligence: 3
+    ChatGPT: 1
+    Claude: 1
+    LLMs: 1
+    large language model: 1
