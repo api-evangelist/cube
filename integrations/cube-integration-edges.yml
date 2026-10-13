@@ -1,0 +1,37 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://aws.amazon.com/marketplace/
+- https://azuremarketplace.microsoft.com/
+marketplace_apps: []
+edges:
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=f92ac8da-17a3-4348-9d04-3182d0ad4cc5
+  listing_count: 1
+  apps:
+  - Cube Cloud
+  seller_name: Cube Dev, Inc.
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Cube%20Dev%2C%20Inc
+  listing_count: 1
+  apps:
+  - Cube Cloud
+  seller_name: Cube Dev, Inc
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
