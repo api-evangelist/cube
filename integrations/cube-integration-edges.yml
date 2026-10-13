@@ -35,3 +35,22 @@ edges:
   seller_name: Cube Dev, Inc
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: PostgreSQL
+  partner: postgresql
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: postgres-wire
+  type: docs
+  degree: declared-subset
+  evidence: https://cube.dev/docs/product/apis-integrations/sql-api
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/cube/blob/main/evidence/compatibility/cube-postgres-wire-1.md
+  quote: Connect any Postgres-compatible client or BI tool to Cube using the Postgres-protocol SQL API.
+  supported_operations:
+  - Views
+  unsupported_operations: []
+  supported_share: 0.037
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'

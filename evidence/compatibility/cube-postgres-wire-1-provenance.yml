@@ -1,0 +1,12 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://cube.dev/docs/product/apis-integrations/sql-api
+page: https://cube.dev/docs/product/apis-integrations/sql-api
+file: cube-postgres-wire-1.md
+bytes: 9761
+sha256: 91164d4c88f4fe344855f590dfc1cf764fa818493253cb8ea7b3e88980fb7043
+anchor: postgresql
+shape: postgres-wire
+classification: declares-compatibility
+quote: Transport Postgres protocol
+note: text extracted from the provider's own page (tags stripped), saved for evidence
