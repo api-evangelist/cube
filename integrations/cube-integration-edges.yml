@@ -36,6 +36,21 @@ edges:
   seller_name: Cube Dev, Inc
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/cube-cloud-integration
+  listing_count: 1
+  apps:
+  - Cube Cloud Integration
+  publisher_name: Cube Dev, Inc.
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 - partner_name: PostgreSQL
   partner: postgresql
   partner_match: shape-anchor
@@ -55,20 +70,5 @@ edges:
   supported_share: 0.037
   detected_by: sweep-shape-compat.py
   first_seen: '2026-10-13'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://github.com/marketplace/cube-cloud-integration
-  listing_count: 1
-  apps:
-  - Cube Cloud Integration
-  publisher_name: Cube Dev, Inc.
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
 source:
 - https://github.com/marketplace?type=apps
