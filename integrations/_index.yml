@@ -27,18 +27,6 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
-- slug: cube-github-marketplace-apps
-  label: GitHub Marketplace (apps)
-  partner: github
-  partner_name: GitHub Marketplace (apps)
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  evidence: https://github.com/marketplace/cube-cloud-integration
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: cube-postgresql
   label: PostgreSQL
   partner: postgresql
