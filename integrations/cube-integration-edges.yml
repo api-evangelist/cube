@@ -15,6 +15,7 @@ checked:
 - https://www.antler.co/portfolio
 - https://www.techstars.com/portfolio
 - https://www.ycombinator.com/companies
+- github/integrations/github-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -124,5 +125,21 @@ edges:
     year: '2016'
   detected_by: sweep-accelerator-portfolios.py
   first_seen: '2026-10-21'
+- partner_name: GitHub (own)
+  partner: github
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/marketplace/cube-cloud-integration
+  mirror_of: github/integrations/github-integration-edges.yml
+  apps:
+  - Cube Cloud Integration
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
 source:
 - https://github.com/marketplace?type=apps

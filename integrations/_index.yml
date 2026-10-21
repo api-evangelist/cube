@@ -88,3 +88,15 @@
     year: '2016'
   status: not-a-workflow
   arazzo: null
+- slug: cube-github-own
+  label: GitHub (own)
+  partner: github
+  partner_name: GitHub (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/marketplace/cube-cloud-integration
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
