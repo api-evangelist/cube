@@ -64,49 +64,94 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Cube is a semantic layer and headless BI platform that sits between your data
-warehouse and any downstream consumer — BI tools, front-end applications, AI
-agents, or embedded analytics products. Engineers define metrics, dimensions,
-joins, and access rules once in code; Cube exposes them through SQL, REST,
-GraphQL, and MDX APIs simultaneously.
+Semantic layer and headless BI platform with a GraphQL API for querying measures, dimensions, and segments across any SQL database or data warehouse.
 
-## APIs
+**Areas:** GraphQL · Semantic Layer · Business Intelligence · Embedded Analytics · Data Warehouse
 
-| API | Endpoint | Description |
-|-----|----------|-------------|
-| GraphQL API | `/graphql` | Query measures, dimensions, and segments via GraphQL over HTTP |
-| REST API | `/cubejs-api/v1` | JSON-based query API with load, meta, and SQL endpoints |
-| SQL API | Port `15432` | PostgreSQL-wire-compatible interface for BI tools |
-| MDX API | `/mdx` | MDX protocol for Excel and Power BI (Enterprise) |
+## Cube on APIs.io
 
-## Resources
+Everything profiled for Cube is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cube/](https://apis.io/providers/cube/)** — or go straight to one of the APIs or properties below.
 
-- **Website:** https://cube.dev
-- **Documentation:** https://cube.dev/docs
-- **GitHub:** https://github.com/cube-js
-- **LinkedIn:** https://www.linkedin.com/company/cube-dev
-- **Pricing:** https://cube.dev/pricing
+### APIs (1)
 
-## Plans
+- [Cube GraphQL API](https://apis.io/apis/cube/graphql-api/) — GraphQL API that enables Cube to deliver data over HTTP to GraphQL-enabled data applications. Exposes measures, dimensions, segments, and filters defined in…
 
-See [plans/cube-plans.md](plans/cube-plans.md) for a breakdown of Free, Starter,
-Premium, and Enterprise tiers.
+### Published properties
 
-## Rate Limits
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-See [rate-limits/cube-rate-limits.md](rate-limits/cube-rate-limits.md) for
-per-plan quota details and concurrency notes.
+#### GraphQL (1)
 
-## FinOps
+GraphQL schemas.
 
-See [finops/cube-finops.md](finops/cube-finops.md) for cost drivers and
-optimization strategies.
+- [Cube GraphQL API](https://apis.io/graphqls/cube/cube-graphql/)
 
-## GraphQL API Notes
+#### Security (2)
 
-See [graphql/cube-graphql.md](graphql/cube-graphql.md) for endpoint details,
-example queries, and supported operations.
+Authentication, trust centre, and vulnerability disclosure.
 
-## Maintainer
+- [Cube Domain Security](https://apis.io/security/cube/cube-domain-security/)
+- [Cube Trust Center](https://apis.io/security/cube/cube-trust-center/)
 
-Kin Lane — kin@apievangelist.com
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://cube.dev)
+- [Documentation](https://cube.dev/docs)
+- [Pricing](https://cube.dev/pricing)
+- [Blog](https://cube.dev/blog)
+- [GitHub](https://github.com/cube-js)
+
+## API Evangelist rating
+
+**Kin Score 21.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 34.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 18.4 |
+
+**Agent readiness 15.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cube/](https://apis.io/providers/cube/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cube: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cube/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
